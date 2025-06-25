@@ -1,0 +1,128 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+/* Mensajes de feedback */
+.mensaje-error {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #c62828;
+}
+
+.mensaje-exito {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #2e7d32;
+}
+
+/* Formulario */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+select, input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Botones */
+.boton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.boton:hover {
+    background-color: #2980b9;
+}
+
+.boton-secundario {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.boton-secundario:hover {
+    background-color: #c0392b;
+}
+
+/* Estilos para select de artículos */
+#articulo_id {
+    width: 100%;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .contenedor {
+        margin: 15px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+}

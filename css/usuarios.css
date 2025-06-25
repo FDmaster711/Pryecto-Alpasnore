@@ -1,0 +1,121 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.contenedor-principal {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.titulo-pagina {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+}
+
+/* Mensajes de feedback */
+.mensaje-error {
+    color: #e74c3c;
+    background-color: #fdecea;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #e74c3c;
+}
+
+.mensaje-exito {
+    color: #27ae60;
+    background-color: #e8f5e9;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #27ae60;
+}
+
+/* Formulario */
+.formulario-creacion {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-formulario label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.campo-formulario {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.campo-formulario:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.grupo-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.grupo-checkbox input {
+    width: auto;
+}
+
+/* Botones */
+.boton-primario {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.boton-primario:hover {
+    background-color: #2980b9;
+}
+
+.enlace-volver {
+    display: inline-block;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.enlace-volver:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
