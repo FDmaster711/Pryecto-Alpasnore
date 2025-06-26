@@ -26,7 +26,7 @@ if (!isset($_SESSION["user_id"])) {
                     <li><a href="../crear_usuarios.php">Crear nuevo usuario</a></li>
                 <?php endif; ?>
                 <li><a href="/Artesania_Alpasnore/vista/inventario.php">Gestión de inventario</a></li>
-                <li><a href="#">Registro de ventas</a></li>
+                <li><a href="http://localhost/Artesania_Alpasnore/registrar_venta.php">Registro de ventas</a></li>
                 <li><a href="#">Reporte y análisis</a></li>
             </ul>
         </div>

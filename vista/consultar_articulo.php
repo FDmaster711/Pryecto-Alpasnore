@@ -49,7 +49,7 @@
                                 <td class="<?= $articulo['cantidad'] == 0 ? 'stock-agotado' : ($articulo['cantidad'] < 10 ? 'stock-bajo' : '') ?>">
                                     <?= $articulo['cantidad'] ?>
                                 </td>
-                                <td>$<?= number_format($articulo['precio'], 2) ?></td>
+                                <td><?= number_format($articulo['precio'], 2, ',', '.') ?>Bs</td>
                                 <td>
                                     <a href="/Artesania_Alpasnore/actualizar_stock.php?id=<?= $articulo['id'] ?>" class="boton-secundario">Editar</a>
                                 </td>

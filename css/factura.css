@@ -1,0 +1,122 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h1, h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: 1.5em;
+    border-bottom-width: 1px;
+}
+
+/* Datos del cliente / venta */
+.grupo-formulario p {
+    margin: 6px 0;
+    font-size: 16px;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.total-label {
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Botones */
+.boton {
+    padding: 14px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.boton:hover {
+    background-color: #2980b9;
+}
+
+.boton-secundario {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.boton-secundario:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}

@@ -39,7 +39,7 @@
             <div class="grupo-formulario">
                 <label for="precio">Precio Unitario:</label>
                 <input type="text" id="precio" name="precio" value="<?= htmlspecialchars($_POST['precio'] ?? '') ?>" required>
-                <small>Formato: 99.99</small>
+                <small>Formato: 1.999,99</small>
             </div>
 
             <div class="grupo-formulario">

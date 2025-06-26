@@ -38,11 +38,12 @@ class ArticuloModelo {
 }
 
 public function obtenerPorId($id) {
-    $stmt = $this->conexion->prepare("SELECT id, codigo, nombre, cantidad FROM articulos WHERE id = ?");
+    $stmt = $this->conexion->prepare("SELECT id, codigo, nombre, cantidad, precio FROM articulos WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     return $stmt->get_result()->fetch_assoc();
 }
+
 
 public function actualizarCantidad($id, $nuevaCantidad) {
     $stmt = $this->conexion->prepare("UPDATE articulos SET cantidad = ? WHERE id = ?");

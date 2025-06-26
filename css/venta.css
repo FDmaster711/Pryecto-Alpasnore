@@ -1,0 +1,206 @@
+/* Estilos generales  */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h1, h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: 1.5em;
+    border-bottom-width: 1px;
+}
+
+/* Mensajes */
+.mensaje-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #dc3545;
+}
+
+.mensaje-exito {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #28a745;
+}
+
+/* Formulario */
+.formulario {
+    display: grid;
+    gap: 20px;
+}
+
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-formulario label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.grupo-formulario input,
+.grupo-formulario select,
+.grupo-formulario textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.grupo-formulario input:focus,
+.grupo-formulario select:focus,
+.grupo-formulario textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.total-label {
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Botones */
+.boton {
+    padding: 14px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.boton:hover {
+    background-color: #2980b9;
+}
+
+.boton-confirmar {
+    padding: 14px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.boton-confirmar:hover {
+    background-color: #27ae60;
+}
+
+.boton-secundario {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.boton-secundario:hover {
+    background-color: #c0392b;
+}
+
+.boton-3{
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #1da16a;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.boton-3:hover {
+    background-color: #30a34d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor {
+        margin: 15px;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
