@@ -1,17 +1,16 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #eef2f5;
     color: #333;
-    line-height: 1.6;
 }
 
 /* Contenedor principal */
 .contenedor {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
     padding: 20px;
 }
 
@@ -28,61 +27,86 @@ body {
     margin-top: 30px;
 }
 
+/* Tarjeta de bienvenida */
+.tarjeta-bienvenida {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
 /* Lista de opciones */
 .lista-opciones {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    margin: 20px 0;
+    margin: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .lista-opciones li {
-    margin-bottom: 10px;
+    flex: 1 1 120px;
+    max-width: 140px;
 }
 
 .lista-opciones li a {
     display: block;
-    padding: 10px 15px;
-    background-color: #3498db;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 12px;
+    background: #3498db;
     color: white;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
 }
 
 .lista-opciones li a:hover {
     background-color: #2980b9;
+    transform: translateY(-4px);
+}
+
+.lista-opciones i {
+    font-size: 36px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.lista-opciones span {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Sección logout */
+.seccion-logout {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 /* Botón de cerrar sesión */
 .boton-cerrar-sesion {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
     background-color: #e74c3c;
     color: white;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .boton-cerrar-sesion:hover {
     background-color: #c0392b;
 }
 
-/* Tarjeta de bienvenida */
-.tarjeta-bienvenida {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-}
-
-/* Sección de administrador */
-.seccion-administrador {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+.boton-cerrar-sesion i {
+    font-size: 20px;
 }

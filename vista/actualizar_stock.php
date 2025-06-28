@@ -5,6 +5,7 @@
     <title>Actualizar Stock</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Artesania_Alpasnore/css/stock.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="contenedor">
@@ -52,7 +53,10 @@
             <button type="submit" class="boton">Actualizar Stock</button>
         </form>
 
-        <a href="/Artesania_Alpasnore/vista/inventario.php" class="boton-secundario">← Volver al Inventario</a>
+        <a href="/Artesania_Alpasnore/vista/inventario.php" class="boton-secundario">
+            <i class="fa-solid fa-reply"></i>
+            <span>Volver al Inventario</span>
+        </a>
     </div>
 </body>
 </html>

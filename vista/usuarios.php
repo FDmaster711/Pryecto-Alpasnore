@@ -5,6 +5,7 @@
     <title>Crear Usuario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Artesania_Alpasnore/css/usuarios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="contenedor-principal">
@@ -40,7 +41,11 @@
             <button type="submit" class="boton-primario">Crear Usuario</button>
         </form>
 
-        <a href="/Artesania_Alpasnore/vista/index.php" class="enlace-volver">← Volver al panel</a>
+        <!-- Enlace visual con ícono para volver al panel -->
+        <a href="/Artesania_Alpasnore/vista/index.php" class="enlace-volver" title="Volver al panel">
+            <i class="fas fa-house"></i>
+            <span>Volver al panel</span>
+        </a>
     </div>
 </body>
 </html>

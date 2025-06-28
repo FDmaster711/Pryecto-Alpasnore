@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Historial de Facturas</title>
     <link rel="stylesheet" href="/Artesania_Alpasnore/css/factura.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 <div class="contenedor">
@@ -28,13 +29,21 @@
                 <td><?= htmlspecialchars($factura['cliente']) ?></td>
                 <td><?= htmlspecialchars($factura['cedula']) ?></td>
                 <td><?= number_format($factura['total'], 2, ',', '.') ?> Bs</td>
-                <td><a class="boton" href="factura.php?id=<?= $factura['id'] ?>">Ver</a></td>
+                <td>
+                    <a class="boton boton-icono" href="factura.php?id=<?= $factura['id'] ?>" title="Ver Factura">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 
-    <a href="registrar_venta.php" class="boton-secundario">← Nueva Venta</a>
+    <a href="registrar_venta.php" class="boton-secundario">
+        <i class="fas fa-plus"></i>
+        <span>Nueva Venta</span>
+    </a>
 </div>
 </body>
 </html>
+

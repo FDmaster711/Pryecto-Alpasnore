@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Factura de Venta</title>
-    <link rel="stylesheet" href="/Artesania_Alpasnore/css/factura.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   
+    <link rel="stylesheet" href="/Artesania_Alpasnore/css/factura.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 <div class="contenedor">
     <h1>Factura de Venta</h1>
 
     <?php
-    $venta = $factura[0]; // info común a toda la venta
+    $venta = $factura[0]; 
     ?>
 
     <div class="datos-venta grupo-formulario">
@@ -53,11 +57,15 @@
         </tbody>
     </table>
 
-    <div class="formulario">
-        <a href="/Artesania_Alpasnore/registrar_venta.php" class="boton-secundario">← Nueva Venta</a>
-        <button onclick="window.print()" class="boton">Imprimir Factura</button>
+    <div class="formulario acciones">
+        <a href="/Artesania_Alpasnore/registrar_venta.php" class="boton-secundario">
+            <i class="fas fa-plus"></i>
+            <span>Nueva Venta</span>
+        </a>
+        <button onclick="window.print()" class="boton">
+            <i class="fas fa-print"></i>
+            <span>Imprimir Factura</span>
+        </button>
     </div>
 </div>
 </body>
-</html>
-

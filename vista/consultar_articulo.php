@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Consultar Artículos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="/Artesania_Alpasnore/css/consulta.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="contenedor">
@@ -26,7 +29,10 @@
                 </select>
             </div>
 
-            <button type="submit" class="boton boton-buscar">Buscar</button>
+            <button type="submit" class="boton boton-buscar">
+                <i class="fas fa-search"></i>
+                <span>Buscar</span>
+            </button>
         </form>
 
         <div class="contenedor-tabla">
@@ -42,16 +48,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($articulos as $articulo): ?>
-                            <tr>
-                                <td><?= htmlspecialchars($articulo['codigo']) ?></td>
-                                <td><?= htmlspecialchars($articulo['nombre']) ?></td>
-                                <td class="<?= $articulo['cantidad'] == 0 ? 'stock-agotado' : ($articulo['cantidad'] < 10 ? 'stock-bajo' : '') ?>">
-                                    <?= $articulo['cantidad'] ?>
-                                </td>
-                                <td><?= number_format($articulo['precio'], 2, ',', '.') ?>Bs</td>
-                                <td>
-                                    <a href="/Artesania_Alpasnore/actualizar_stock.php?id=<?= $articulo['id'] ?>" class="boton-secundario">Editar</a>
+                        <?php foreach ($articulos as $articulo): ?>                            <tr>
+                            <td><?= htmlspecialchars($articulo['codigo']) ?></td>
+                            <td><?= htmlspecialchars($articulo['nombre']) ?></td>
+                            <td class="<?= $articulo['cantidad'] == 0 ? 'stock-agotado' : ($articulo['cantidad'] < 10 ? 'stock-bajo' : '') ?>">
+                                <?= $articulo['cantidad'] ?>
+                            </td>
+                            <td><?= number_format($articulo['precio'], 2, ',', '.') ?>Bs</td>
+                               <td>
+                                    <a href="/Artesania_Alpasnore/actualizar_stock.php?id=<?= $articulo['id'] ?>" class="boton-secundario">
+                                        <i class="fas fa-pen-to-square"></i>
+                                        <span>Editar</span>
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -65,9 +73,15 @@
         </div>
 
         <div class="acciones">
-            <a href="/Artesania_Alpasnore/vista/inventario.php" class="boton-secundario">← Volver al Inventario</a>
+            <a href="/Artesania_Alpasnore/vista/inventario.php" class="boton-secundario">
+                <i class="fa-solid fa-reply"></i>
+                <span>Volver al Inventario</span>
+            </a>
             <?php if (!empty($_SESSION['es_admin'])): ?>
-                <a href="/Artesania_Alpasnore/registrar_articulo.php" class="boton">Agregar Nuevo Artículo</a>
+                <a href="/Artesania_Alpasnore/registrar_articulo.php" class="boton">
+                    <i class="fas fa-plus"></i>
+                    <span>Agregar Nuevo Artículo</span>
+                </a>
             <?php endif; ?>
         </div>
     </div>

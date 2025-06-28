@@ -5,6 +5,7 @@
     <title>Registrar Nuevo Producto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Artesania_Alpasnore/css/registrar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="contenedor">
@@ -17,7 +18,6 @@
         <?php if (!empty($mensaje)): ?>
             <div class="mensaje-exito"><?= htmlspecialchars($mensaje) ?></div>
         <?php endif; ?>
- 
 
         <form method="POST" action="/Artesania_Alpasnore/registrar_articulo.php" class="formulario">
             <div class="grupo-formulario">
@@ -50,7 +50,11 @@
             <button type="submit" class="boton">Registrar Producto</button>
         </form>
 
-        <a href="/Artesania_Alpasnore/vista/inventario.php" class="boton-secundario">← Volver al Inventario</a>
+        <a href="/Artesania_Alpasnore/vista/inventario.php" class="boton-secundario">
+            <i class="fa-solid fa-reply"></i>
+            <span>Volver al Inventario</span>
+        </a>
+
     </div>
 </body>
 </html>

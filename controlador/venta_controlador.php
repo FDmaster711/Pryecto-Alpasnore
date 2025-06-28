@@ -52,7 +52,7 @@ class VentaControlador {
 
             if (isset($_POST['confirmar'])) {
                 $cliente = trim($_POST['cliente']);
-                $cedula = trim($_POST['cedula']); // ✅ nueva línea
+                $cedula = trim($_POST['cedula']); 
                 $carrito = $_SESSION['carrito'];
                 $usuario_id = $_SESSION['user_id'];
 
