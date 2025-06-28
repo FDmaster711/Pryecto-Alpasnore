@@ -9,49 +9,71 @@ class VentaModelo {
         $this->conexion = $db->obtenerConexion();
     }
 
-    public function registrarVenta($cliente, $cedula, $carrito, $usuario_id) {
+public function registrarVenta($cliente, $cedula, $carrito, $usuario_id) {
     $this->conexion->begin_transaction();
 
     try {
         $fecha = date('Y-m-d H:i:s');
- $stmt = $this->conexion->prepare("
-    INSERT INTO ventas (cliente, cedula, fecha, usuario_id, total)
-    VALUES (?, ?, ?, ?, 0)
-");
-$stmt->bind_param("sssi", $cliente, $cedula, $fecha, $usuario_id);
-
-        $stmt->execute();
-        $venta_id = $stmt->insert_id;
+        
+        // Registrar venta principal
+        $stmt = $this->conexion->prepare("
+            INSERT INTO ventas (cliente, cedula, fecha, usuario_id, total)
+            VALUES (?, ?, ?, ?, 0)
+        ");
+        $stmt->bind_param("sssi", $cliente, $cedula, $fecha, $usuario_id);
+        
+        if (!$stmt->execute()) {
+            throw new Exception("Error al registrar venta: " . $stmt->error);
+        }
+        $venta_id = $this->conexion->insert_id;
+        $stmt->close();
 
         $total = 0;
 
+        // Registrar detalles de venta
         foreach ($carrito as $item) {
             $subtotal = $item['precio'] * $item['cantidad'];
             $total += $subtotal;
 
+            // Insertar detalle
             $stmt_detalle = $this->conexion->prepare(
                 "INSERT INTO detalle_venta (venta_id, articulo_id, cantidad, precio_unitario)
                  VALUES (?, ?, ?, ?)"
             );
             $stmt_detalle->bind_param("iiid", $venta_id, $item['id'], $item['cantidad'], $item['precio']);
-            $stmt_detalle->execute();
+            
+            if (!$stmt_detalle->execute()) {
+                throw new Exception("Error en detalle: " . $stmt_detalle->error);
+            }
+            $stmt_detalle->close();
 
+            // Actualizar stock
             $stmt_stock = $this->conexion->prepare(
                 "UPDATE articulos SET cantidad = cantidad - ? WHERE id = ?"
             );
             $stmt_stock->bind_param("ii", $item['cantidad'], $item['id']);
-            $stmt_stock->execute();
+            
+            if (!$stmt_stock->execute()) {
+                throw new Exception("Error actualizando stock: " . $stmt_stock->error);
+            }
+            $stmt_stock->close();
         }
 
+        // Actualizar total de venta
         $stmt_total = $this->conexion->prepare("UPDATE ventas SET total = ? WHERE id = ?");
         $stmt_total->bind_param("di", $total, $venta_id);
-        $stmt_total->execute();
+        
+        if (!$stmt_total->execute()) {
+            throw new Exception("Error actualizando total: " . $stmt_total->error);
+        }
+        $stmt_total->close();
 
         $this->conexion->commit();
         return $venta_id;
 
     } catch (Exception $e) {
         $this->conexion->rollback();
+        error_log("Error en registrarVenta: " . $e->getMessage());
         return false;
     }
 }
