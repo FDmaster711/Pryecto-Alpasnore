@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 26, 2025 at 05:59 PM
+-- Generation Time: Jun 28, 2025 at 07:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -41,12 +41,13 @@ CREATE TABLE `articulos` (
 --
 
 INSERT INTO `articulos` (`id`, `codigo`, `nombre`, `descripcion`, `precio`, `cantidad`) VALUES
-(1, '7777', 'siu', 'cr7', 1.99, 58),
-(2, '101010', 'messi', 'messiee', 0.99, 3),
-(3, '6666', 'bomba nuclear', 'kaboom', 1000.99, 43),
-(4, '9999', 'calculadora', 'para salvar la materia', 25.00, 97),
-(5, '1234', 'sasa', 'dafwef', 4.00, 28),
-(7, '12', 'tyjtyj', 'gertgeg', 20.00, 8);
+(1, '7777', 'Jarron', 'jarrón artesanal es elaborado por talentosos alfareros venezolanos, utilizando técnicas ancestrales de moldeado y horneado en barro. Cada pieza es única, decorada con vibrantes colores y motivos tradicionales que reflejan la riqueza cultural de Venezuela. Perfecto para decorar espacios con autenticidad y estilo, ya sea como centro de mesa o para exhibir flores secas. ¡Una verdadera obra de arte funcional!', 100.00, 55),
+(2, '101010', 'Juego De Tazas', 'Disfruta tu café matutino con un toque de tradición venezolana. Estas tazas artesanales están elaboradas en cerámica de barro o arcilla, moldeadas y pintadas a mano por talentosos alfareros. Cada pieza tiene diseños únicos inspirados en la flora, fauna y patrones geométricos de la artesanía local. Resistentes al calor y con un acabado rústico-chic, son ideales para regalar o para darle un aire auténtico a tu colección de vajilla.', 500.00, 0),
+(3, '6666', 'Juego de Sillas', 'Esta silla artesanal es una pieza única, elaborada por maestros carpinteros venezolanos que combinan técnicas ancestrales con diseños robustos y llenos de carácter. Fabricada en madera resistente (como samán, cedro o caoba), su estructura sólida y detalles tallados a mano la convierten en un mueble funcional y con alma. Ideal para dar un toque rústico-chic a comedores, terrazas o espacios de descanso, fusionando durabilidad con el calor de la artesanía local.', 1000.99, 13),
+(4, '9999', 'calculadora', 'para salvar la materia', 25.00, 42),
+(5, '1234', 'Dulces Venezolanos', 'Endulza tus momentos con la auténtica tradición venciana. Nuestros dulces artesanales son elaborados con recetas heredadas por generaciones, usando ingredientes naturales como papelón, coco, leche y frutas frescas. Cada bocado es un viaje a los sabores de la Venezuela de antaño, perfecto para compartir en familia, regalar o disfrutar con un café.', 60.00, 28),
+(7, '12', 'tyjtyj', 'gertgeg', 20.00, 3),
+(8, '3333', 'monitor', 'th56rj6t6r', 60.00, 0);
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,20 @@ INSERT INTO `detalle_venta` (`id`, `venta_id`, `articulo_id`, `cantidad`, `preci
 (20, 17, 3, 1, 1000.99),
 (21, 17, 3, 1, 1000.99),
 (22, 17, 3, 1, 1000.99),
-(23, 17, 1, 1, 1.99);
+(23, 17, 1, 1, 1.99),
+(24, 18, 4, 5, 25.00),
+(25, 18, 3, 1, 1000.99),
+(26, 19, 4, 50, 25.00),
+(27, 20, 2, 2, 0.99),
+(28, 21, 3, 2, 1000.99),
+(29, 22, 3, 3, 1000.99),
+(30, 23, 7, 5, 20.00),
+(31, 24, 3, 2, 1000.99),
+(32, 25, 3, 2, 1000.99),
+(33, 26, 3, 10, 1000.99),
+(34, 27, 1, 3, 1.99),
+(35, 28, 2, 1, 0.99),
+(36, 29, 3, 10, 1000.99);
 
 -- --------------------------------------------------------
 
@@ -126,7 +140,7 @@ INSERT INTO `usuario` (`id`, `nombre`, `usuario`, `password`, `es_admin`, `creat
 
 CREATE TABLE `ventas` (
   `id` int(11) NOT NULL,
-  `fecha` datetime DEFAULT current_timestamp(),
+  `fecha` datetime DEFAULT NULL,
   `cliente` varchar(100) DEFAULT NULL,
   `cedula` varchar(20) DEFAULT NULL,
   `total` decimal(10,2) DEFAULT NULL,
@@ -154,7 +168,19 @@ INSERT INTO `ventas` (`id`, `fecha`, `cliente`, `cedula`, `total`, `usuario_id`)
 (14, '2025-06-25 21:26:21', 'fabiola', NULL, 0.99, 8),
 (15, '2025-06-26 11:00:18', 'aa', NULL, 3002.97, 8),
 (16, '2025-06-26 11:09:46', 'fabiola', NULL, 1008.99, 8),
-(17, '2025-06-26 11:19:04', 'fabiola', '31221679', 3004.96, 8);
+(17, '2025-06-26 11:19:04', 'fabiola', '31221679', 3004.96, 8),
+(18, '2025-06-26 20:26:17', 'fabiola', '30004882', 1125.99, 8),
+(19, '2025-06-28 10:49:18', 'fabiola', '31221679', 1250.00, 11),
+(20, '2025-06-28 10:51:21', 'fabiola', '31221679', 1.98, 11),
+(21, '2025-06-28 10:51:32', 'fabiola', '31221679', 2001.98, 11),
+(22, '2025-06-28 10:53:42', 'fabiola', '31221679', 3002.97, 8),
+(23, '2025-06-28 11:00:38', 'fabiola', '31221679', 100.00, 8),
+(24, '2025-06-28 00:00:00', 'sasa', '31221679', 2001.98, 8),
+(25, '2025-06-28 00:00:00', 'x', '32221569', 2001.98, 8),
+(26, '2025-06-28 00:00:00', 'aa', '30004882', 10009.90, 11),
+(27, '2025-06-28 00:00:00', 'ff', '30004882', 5.97, 11),
+(28, '2025-06-28 17:35:52', 'fabiola', '32221569', 0.99, 11),
+(29, '2025-06-28 18:28:37', 'll', '30004882', 10009.90, 8);
 
 --
 -- Indexes for dumped tables
@@ -194,13 +220,13 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT for table `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -212,7 +238,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
