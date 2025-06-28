@@ -109,6 +109,9 @@ class VentaControlador {
     include __DIR__ . '/../vista/listado_facturas.php';
 }
 
+
+
+
 }
 
 

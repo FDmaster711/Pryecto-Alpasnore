@@ -13,8 +13,13 @@ class VentaModelo {
     $this->conexion->begin_transaction();
 
     try {
-        $stmt = $this->conexion->prepare("INSERT INTO ventas (cliente, cedula, total, usuario_id) VALUES (?, ?, 0, ?)");
-        $stmt->bind_param("ssi", $cliente, $cedula, $usuario_id);
+        $fecha = date('Y-m-d H:i:s');
+ $stmt = $this->conexion->prepare("
+    INSERT INTO ventas (cliente, cedula, fecha, usuario_id, total)
+    VALUES (?, ?, ?, ?, 0)
+");
+$stmt->bind_param("sssi", $cliente, $cedula, $fecha, $usuario_id);
+
         $stmt->execute();
         $venta_id = $stmt->insert_id;
 
@@ -72,5 +77,62 @@ class VentaModelo {
     $stmt->execute();
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 }
+
+public function obtenerResumenProductos($fechaInicio, $fechaFin) {
+    $stmt = $this->conexion->prepare("
+        SELECT a.nombre, SUM(d.cantidad) AS total_vendida
+        FROM detalle_venta d
+        JOIN articulos a ON d.articulo_id = a.id
+        JOIN ventas v ON d.venta_id = v.id
+        WHERE v.fecha BETWEEN ? AND ?
+        GROUP BY a.id
+        ORDER BY total_vendida DESC
+    ");
+    $stmt->bind_param("ss", $fechaInicio, $fechaFin);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+
+public function obtenerDetalleProductosConMonto($inicio, $fin) {
+    $stmt = $this->conexion->prepare("
+        SELECT 
+            a.nombre,
+            SUM(d.cantidad) AS cantidad_total,
+            SUM(d.cantidad * d.precio_unitario) AS monto_total
+        FROM detalle_venta d
+        JOIN articulos a ON d.articulo_id = a.id
+        JOIN ventas v ON d.venta_id = v.id
+        WHERE v.fecha BETWEEN ? AND ?
+        GROUP BY a.id
+        ORDER BY cantidad_total DESC
+    ");
+    $stmt->bind_param("ss", $inicio, $fin);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+
+public function obtenerMejorVendedor($inicio, $fin) {
+    $stmt = $this->conexion->prepare("
+        SELECT u.nombre, SUM(v.total) AS monto_total
+        FROM ventas v
+        JOIN usuario u ON v.usuario_id = u.id
+        WHERE v.fecha BETWEEN ? AND ?
+        GROUP BY u.id
+        ORDER BY monto_total DESC
+        LIMIT 1
+    ");
+
+    
+    if (!$stmt) {
+       
+        return ['nombre' => 'N/A', 'monto_total' => 0];
+    }
+
+    $stmt->bind_param("ss", $inicio, $fin);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
+}
+
+
 
 }

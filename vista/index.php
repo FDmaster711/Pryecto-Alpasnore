@@ -43,7 +43,7 @@ if (!isset($_SESSION["user_id"])) {
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="Reporte y análisis">
+                    <a href="http://localhost/Artesania_Alpasnore/vista/generar_reportes.php" title="Reporte y análisis">
                         <i class="fas fa-chart-line"></i><br>
                         <span>Reportes</span>
                     </a>
